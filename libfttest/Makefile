@@ -5,13 +5,13 @@ LIBFT_PATH		= $(PARENT_DIR)
 TESTS_PATH		= tests/
 MANDATORY		= memset bzero memcpy memmove memchr memcmp strlen isalpha isdigit isalnum \
 				isascii isprint toupper tolower strchr strrchr strncmp strlcpy strlcat strnstr \
-				atoi calloc strdup substr strjoin strtrim itoa strmapi striteri putchar_fd putstr_fd \
-				putendl_fd putnbr_fd 
+				atoi calloc strdup substr strjoin strtrim split itoa strmapi striteri putchar_fd putstr_fd \
+				putendl_fd putnbr_fd
 BONUS			= lstnew lstadd_front lstsize lstlast lstadd_back lstdelone lstclear lstiter lstmap
 VSOPEN			= $(addprefix vs, $(MANDATORY)) $(addprefix vs, $(BONUS))
 
 CC		= clang++
-CFLAGS	= -g3 -ldl -gdwarf-4 -std=c++11 -I utils/ -I$(LIBFT_PATH) 
+CFLAGS	= -g3 -ldl -gdwarf-4 -std=c++11 -I utils/ -I$(LIBFT_PATH)
 UNAME = $(shell uname -s)
 ifeq ($(UNAME), Linux)
 	VALGRIND = valgrind -q --leak-check=full
@@ -57,7 +57,7 @@ $(addprefix docker, $(MANDATORY)) $(addprefix docker, $(BONUS)) dockerm dockerb 
 
 m: $(MANDATORY)
 b: $(BONUS)
-a: m b 
+a: m b
 
 clean:
 	make clean -C $(LIBFT_PATH) && rm -rf a.out*

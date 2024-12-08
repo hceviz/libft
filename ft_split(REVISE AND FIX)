@@ -1,0 +1,89 @@
+/******************************************************************************/
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hceviz <hceviz@student.42warsaw.pl>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/06 12:27:12 by hceviz            #+#    #+#             */
+/*   Updated: 2024/12/08 16:12:51 by hceviz           ###   ########.fr       */
+/*                                                                            */
+/******************************************************************************/
+
+#include "libft.h"
+//in case of freeing double pointer arrays, we have free seperately
+// for main array and for sub arrays
+
+static size_t  count_words(char const *s, char c)
+{
+    size_t  count;
+    size_t  i;
+
+    count = 0;
+    i = 0;
+    while (s[i])
+    {
+        if (s[i] != c)
+        {
+            count++;
+            while (s[i] != c && s[i])
+                i++;
+        }
+        i++;
+    }
+    return (count);
+}
+
+static size_t  word_size(char const *s, char c, size_t sub_index)
+{
+    size_t  size;
+
+    size = 0;
+    while (s[sub_index] == c)
+        sub_index++;
+    while (s[sub_index] != c)
+    {
+        sub_index++;
+        size++;
+    }
+    return (size);
+}
+
+static void fake_free(char **arr, size_t main_index)
+{
+    while (main_index > 0)
+    {
+        free(arr[main_index]);
+        main_index--;
+    }
+    free(arr);
+}
+
+char    **ft_split(char const *s, char c)
+{
+    char    **arr;
+    size_t  size;
+    size_t  main_index;
+    size_t  sub_index;
+
+    arr = (char **)malloc((count_words(s, c) + 1) * sizeof(char *));
+    if (!arr)
+        return (NULL);
+    main_index = -1;
+    sub_index = 0;
+    while (++main_index < count_words(s, c))
+    {
+        while (s[sub_index] == c)
+            sub_index++;
+        size = word_size(s, c, sub_index);
+        arr[main_index] = ft_substr(s, sub_index, size);
+        if (!arr[main_index])
+        {
+            fake_free(arr, main_index);
+            return (NULL);
+        }
+        sub_index += size;
+    }
+    arr[main_index] = 0;
+    return (arr);
+}
