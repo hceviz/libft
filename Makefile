@@ -39,7 +39,7 @@ $(NAME) : $(OBJ)
 
 all : $(NAME)
 
-bonus : $(OBJ) $(OBJ_B)
+bonus : $(NAME) $(OBJ_B)
 		$(AR) $(NAME) $(OBJSB)
 
 clean : 
