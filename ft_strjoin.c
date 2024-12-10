@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hceviz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 11:43:44 by hceviz            #+#    #+#             */
-/*   Updated: 2024/12/05 13:06:42 by hceviz           ###   ########.fr       */
+/*   Updated: 2024/12/10 16:28:58 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	res[i + q] = '\0';
 	return (res);
 }
-/*#include <stdio.h>
-
-int	main(void)
-{
-	char	*s1 = "Hasan";
-	char	*s2 = "";
-
-	printf("%s", ft_strjoin(s1, s2));
-	return (1);
-}*/

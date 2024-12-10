@@ -6,7 +6,7 @@
 /*   By: hceviz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 16:30:10 by hceviz            #+#    #+#             */
-/*   Updated: 2024/12/04 11:43:28 by hceviz           ###   ########.fr       */
+/*   Updated: 2024/12/10 16:28:46 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	if (!s)
-		return (0);
 	while (*s)
 	{
 		if (*s == (char)c)
@@ -26,14 +24,3 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)s);
 	return (0);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	const char	*s = NULL;
-
-	char	*res = ft_strchr(s, 97);
-	printf("%s", res);
-	return 1;
-}*/

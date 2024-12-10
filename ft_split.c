@@ -6,7 +6,7 @@
 /*   By: hceviz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:01:04 by hceviz            #+#    #+#             */
-/*   Updated: 2024/12/09 14:33:24 by hceviz           ###   ########.fr       */
+/*   Updated: 2024/12/10 16:28:40 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,20 +87,3 @@ char	**ft_split(char const *s, char c)
 {
 	return (fill(s, c));
 }
-/*
-int	main(void)
-{
-	char const	*s = "Hello world 42";
-	//char		c = ' ';
-	char		**res = ft_split(s, 0);
-	int	x = 0;
-	int y= 0;
-	while(res[x])
-	{
-		y = 0;
-		printf("%s", res[x]);
-		x++;
-	}
-	
-	return (1);
-}*/

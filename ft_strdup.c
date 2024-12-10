@@ -6,7 +6,7 @@
 /*   By: hceviz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 17:08:35 by hceviz            #+#    #+#             */
-/*   Updated: 2024/12/04 19:14:00 by hceviz           ###   ########.fr       */
+/*   Updated: 2024/12/10 13:07:58 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ char	*ft_strdup(const char *s)
 	int		len;
 	int		i;
 
-	if (!s)
-		return (NULL);
 	i = 0;
 	len = ft_strlen(s);
 	arr = (char *)malloc(len + 1);

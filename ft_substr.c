@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hceviz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 19:48:28 by hceviz            #+#    #+#             */
-/*   Updated: 2024/12/05 11:04:19 by hceviz           ###   ########.fr       */
+/*   Updated: 2024/12/10 16:30:35 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ft_strlcpy(res, ptr, i);
 	return (res);
 }
-/*
-#include <stdio.h>
-int	main(void)
-{
-	char	*s = "HasanCeviz";
-	char	*res = ft_substr(s, 2, 20);
-	printf("%s", res);
-	return 1;
-}*/

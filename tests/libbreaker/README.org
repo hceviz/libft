@@ -1,0 +1,46 @@
+#+author: bazaluga (bzalugas)
+
+* libft-breaker
+libft-breaker is my personal tester for my 42's libft project. This is not the official tests but only the ones I think are important. The best thing to do is to use the maximum tests/testers to be sure your libft is perfect.
+
+** Demo when all is OK
+[[./img/breaker-ok.gif]]
+
+** Demo when failures & "bof cases"
+[[./img/breaker-ko.gif]]
+
+* IMPORTANT INFORMATION
+** Running tests on ubuntu
+If you run the tests on ubuntu machine (with same version as 42), you can use normal tests. These tests compare original libc's function with your function.
+** Running tests on other OS
+I also created a "static" version, that doesn't compare normal libc's function with yours in special cases, like passing NULL, because the behaviors can be different regarding the OS. To use it, run ~make srun~.
+
+* Installation
+*You will need to add the following rule (replacing corresponding variables names by yours) in your libft's Makefile to create a shared library (.so). If you don't plan to use the tester with macos, you can copy only the first rule.*
+#+begin_src makefile
+ifneq ($(shell uname), Darwin)
+breaker:
+			$(CC) -nostartfiles -shared -fPIC -ldl $(CFLAGS) -o libft.so $(SRC) $(SRCBONUS)
+else
+breaker:
+			$(CC) -dynamiclib $(CFLAGS) -o libft.so $(SRC) $(SRCBONUS) -L../obj -lmalloc
+endif
+#+end_src
+
+The default structure for the folders is:
+#+begin_example
+.
+|- libft/
+|- libft-breaker/
+#+end_example
+You can change this by changing the ~$(LIBFTDIR)~ variable in Makefile.
+
+* Usage
+Just run ~make run~ and the Makefile will build your libft & launch the tests.
+
+If you want to run "static tests", run ~make srun~.
+
+If you want to run the tests for a particular function, run ~make run/srun function_name~. (The function_name is the name of your libft's function, for example ~ft_isalpha~).
+
+* Informations
+The libft-breaker uses [[https://cutest.sourceforge.net/][CuTest]] for unit testing every function of the libft. It is really simple to use and it takes only 2 files to work. If you want to create your own unit tests or modify mine, you can do so easily.
